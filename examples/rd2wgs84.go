@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/arnobroekhof/rd2wsg84"
+	"github.com/arnobroekhof/rd2wgs84"
 )
 
 func main() {
