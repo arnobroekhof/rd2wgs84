@@ -26,13 +26,13 @@ func TestWGS84Coords_toRDCoords(t *testing.T) {
 		Lon: 4.905597604352241,
 	}
 
-	rdCoords := wgs84Coords.toRD()
+	rdCoords := wgs84Coords.ToRD()
 	assert.NotNil(t, rdCoords)
 	assert.NotNil(t, rdCoords.X)
 	assert.NotNil(t, rdCoords.Y)
 
-	assert.Equal(t, 122202, rdCoords.X)
-	assert.Equal(t, 487250, rdCoords.Y)
+	assert.Equal(t, float64(122202), rdCoords.X)
+	assert.Equal(t, float64(487250), rdCoords.Y)
 
 	t.Logf("Found X: %v", rdCoords.X)
 	t.Logf("Found Y: %v", rdCoords.Y)

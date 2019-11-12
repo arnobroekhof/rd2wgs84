@@ -55,7 +55,7 @@ func (r RDCoordinates) ToWGS84() WGS84Coordinates {
 		Lon: lon}
 }
 
-func (w WGS84Coordinates) toRD() RDCoordinates {
+func (w WGS84Coordinates) ToRD() RDCoordinates {
 	var x float64
 	var y float64
 

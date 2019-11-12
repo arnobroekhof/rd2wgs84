@@ -5,7 +5,7 @@ import (
 	"github.com/arnobroekhof/rd2wgs84"
 )
 
-func main() {
+func convertToWGS84() {
 
 	rd := rd2wgs84.RDCoordinates{
 		X: 122202,
@@ -14,7 +14,7 @@ func main() {
 
 	wgs84 := rd.ToWGS84()
 
-	fmt.Println(wgs84.Lat)
-	fmt.Println(wgs84.Lon)
+	fmt.Println(wgs84.Lat) //52.37214383811702
+	fmt.Println(wgs84.Lon)  //4.905597604352241
 
 }

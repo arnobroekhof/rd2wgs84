@@ -7,23 +7,56 @@ This library works for coordinates within the Netherlands (and some area outside
 Highest precision is achieved West of 6.0Â°E. You can enter either RD-coordinates (in meters) or WGS84-coordinates in degrees using a decimal point. 
 
 
-# example
+## examples
+
+convert Rijksdriehoek coordinates to WGS84
 
 ```go
 
 package main
 
 import (
-  "github.com/arnobroekhof/rd2wgs84"
-  "fmt"
+	"fmt"
+	"github.com/arnobroekhof/rd2wgs84"
 )
 
-rdcoords := RDCoords{
+func main() {
+
+	rd := rd2wgs84.RDCoordinates{
 		X: 122202,
 		Y: 487250,
 	}
 
-	wgs84Coords := rdcoords.ToWGS84Coords()
+	wgs84 := rd.ToWGS84()
+
+	fmt.Println(wgs84.Lat) //52.37214383811702
+	fmt.Println(wgs84.Lon)  //4.905597604352241
+
+}
+
+```
+
+convert WGS84 to Rijksdriehoek
+
+```go
+package main
+
+import (
+	"fmt"
+	"github.com/arnobroekhof/rd2wgs84"
+)
+
+func main() {
+	wgs84 := rd2wgs84.WGS84Coordinates{
+		Lat: 52.37214383811702,
+		Lon: 4.905597604352241,
+	}
+
+	rd := wgs84.ToRD()
+
+	fmt.Println(rd.X) //122202
+	fmt.Println(rd.Y) //487250
 
 
+}
 ```
