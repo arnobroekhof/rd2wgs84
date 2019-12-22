@@ -6,10 +6,7 @@ import (
 )
 
 func TestRDCoords_ToWGS84Coords(t *testing.T) {
-	rdcoords := RDCoordinates{
-		X: 122202,
-		Y: 487250,
-	}
+	rdcoords := NewRDCoordinates(122202, 487250)
 
 	wgs84Coords := rdcoords.ToWGS84()
 	assert.NotNil(t, wgs84Coords)
@@ -21,10 +18,7 @@ func TestRDCoords_ToWGS84Coords(t *testing.T) {
 }
 
 func TestWGS84Coords_toRDCoords(t *testing.T) {
-	wgs84Coords := WGS84Coordinates{
-		Lat: 52.37214383811702,
-		Lon: 4.905597604352241,
-	}
+	wgs84Coords := NewWSG84Coordinates(52.37214383811702, 4.905597604352241)
 
 	rdCoords := wgs84Coords.ToRD()
 	assert.NotNil(t, rdCoords)
@@ -36,4 +30,18 @@ func TestWGS84Coords_toRDCoords(t *testing.T) {
 
 	t.Logf("Found X: %v", rdCoords.X)
 	t.Logf("Found Y: %v", rdCoords.Y)
+}
+
+func BenchmarkRDCoordinates_ToWGS84(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		rdcoords := NewRDCoordinates(122202, 487250)
+		rdcoords.ToWGS84()
+	}
+}
+
+func BenchmarkWGS84Coordinates_ToRD(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		wgs84Coords := NewWSG84Coordinates(52.37214383811702, 4.905597604352241)
+		wgs84Coords.ToRD()
+	}
 }

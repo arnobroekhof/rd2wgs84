@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	c := cli.NewCLI("rd2wgs84", "0.1")
+	c := cli.NewCLI("rd2wgs84", "0.2")
 	c.Args = os.Args[1:]
 
 	c.Commands = map[string]cli.CommandFactory{
@@ -46,10 +46,7 @@ func (r *RD) Run(args []string) int {
 		return 1
 	}
 
-	wgs := rd2wgs84.WGS84Coordinates{
-		Lat: cor[0],
-		Lon: cor[1],
-	}
+	wgs := rd2wgs84.NewWSG84Coordinates(cor[0], cor[1])
 
 	rd := wgs.ToRD()
 	fmt.Printf("X: %v Y: %v\n", rd.X, rd.Y)
@@ -78,10 +75,7 @@ func (r *WGS84) Run(args []string) int {
 		return 1
 	}
 
-	rd := rd2wgs84.RDCoordinates{
-		X: cor[0],
-		Y: cor[1],
-	}
+	rd := rd2wgs84.NewRDCoordinates(cor[0], cor[1])
 
 	wgs := rd.ToWGS84()
 	fmt.Printf("lat: %v lon: %v\n", wgs.Lat, wgs.Lon)

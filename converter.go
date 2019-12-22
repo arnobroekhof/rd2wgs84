@@ -9,9 +9,23 @@ const (
 	lon0 = 5.387206
 )
 
+func NewWSG84Coordinates(lat, lon float64) WGS84Coordinates {
+	return WGS84Coordinates{
+		Lat: lat,
+		Lon: lon,
+	}
+}
+
 type WGS84Coordinates struct {
 	Lat float64
 	Lon float64
+}
+
+func NewRDCoordinates(x, y float64) RDCoordinates {
+	return RDCoordinates{
+		X: x,
+		Y: y,
+	}
 }
 
 type RDCoordinates struct {
@@ -70,11 +84,11 @@ func (w WGS84Coordinates) ToRD() RDCoordinates {
 	lat := 0.36 * (w.Lat - lat0)
 	lon := 0.36 * (w.Lon - lon0)
 
-	for r, _ := range rpq {
+	for r := range rpq {
 		x = x + (rpq[r] * math.Pow(lat, rp[r]) * math.Pow(lon, rq[r]))
 	}
 
-	for s, _ := range spq {
+	for s := range spq {
 		y = y + (spq[s] * math.Pow(lat, sp[s]) * math.Pow(lon, sq[s]))
 	}
 

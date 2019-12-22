@@ -6,10 +6,7 @@ import (
 )
 
 func convertToRD() {
-	wgs84 := rd2wgs84.WGS84Coordinates{
-		Lat: 52.37214383811702,
-		Lon: 4.905597604352241,
-	}
+	wgs84 := rd2wgs84.NewWSG84Coordinates(52.37214383811702, 4.905597604352241)
 
 	rd := wgs84.ToRD()
 
