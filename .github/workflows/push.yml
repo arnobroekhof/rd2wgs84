@@ -18,7 +18,8 @@ jobs:
         go-version: 1.13.5
     - name: Linting
       uses: "actions-contrib/golangci-lint@master"
-      args: "run"
+      with:
+        args: "run"
     - name: Test
       run: go test ./...
       env:
