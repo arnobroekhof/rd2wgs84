@@ -2,7 +2,7 @@ TEST?=./...
 
 default: test
 
-test: lint
+test: 
 	go list $(TEST) | xargs -n1 go test -timeout=60s -parallel=10 $(TESTARGS)
 
 testrace:
@@ -12,8 +12,10 @@ testrace:
 updatedeps:
 	go mod vendor
 
-lint:
+deps:
 	go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
+
+lint:
 	golangci-lint run ./...
 
 build:
