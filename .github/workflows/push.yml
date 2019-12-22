@@ -16,10 +16,6 @@ jobs:
       uses: actions/setup-go@v1
       with:
         go-version: 1.13.5
-    - name: Linting
-      uses: "actions-contrib/golangci-lint@master"
-      with:
-        args: "run"
     - name: Test
       run: go test ./...
       env:

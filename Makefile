@@ -12,6 +12,10 @@ testrace:
 updatedeps:
 	go mod vendor
 
+lint:
+	go get github.com/golangci/golangci-lint/cmd/golangci-lint
+	golangci-lint run ./...
+
 build:
 	cd cmd
 	go build -o rd2wgs84
