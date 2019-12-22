@@ -21,6 +21,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
     - name: golangci-lint
-        uses: reviewdog/action-golangci-lint@v1
-        with:
-          github_token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+      uses: reviewdog/action-golangci-lint@v1
+      with:
+        github_token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
