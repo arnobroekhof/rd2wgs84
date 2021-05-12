@@ -9,7 +9,7 @@ Highest precision is achieved West of 6.0Â°E. You can enter either RD-coordina
 
 ## examples
 
-convert Rijksdriehoek coordinates to WGS84
+convert WGS84 to Rijksdriehoek
 
 ```go
 
@@ -31,7 +31,7 @@ func main() {
 
 ```
 
-convert WGS84 to Rijksdriehoek
+convert Rijksdriehoek coordinates to WGS84
 
 ```go
 package main
