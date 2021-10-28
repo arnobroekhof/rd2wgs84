@@ -1,9 +1,16 @@
 name: Master-Build
 on:
+  workflow_dispatch
   push:
+    paths-ignore:
+    - 'README.md'
+    - '.github'
     branches:
       - "master"
   pull_request:
+    paths-ignore:
+    - 'README.md'
+    - '.github'
     branches:
       - "master"
 jobs:
