@@ -1,5 +1,5 @@
 name: Release
-on: [ release ]
+on: [ workflow_dispatch ]
 jobs:
   goreleaser:
     runs-on: ubuntu-latest
